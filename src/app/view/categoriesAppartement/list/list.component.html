@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="notification" [ngClass]="{ 'show': _ok }"><i class="bi bi-bell-fill"></i>Propritaire save with succes
+    <i class="bi bi-bell-fill"></i></div>
+  <div class="card">
+    <h5 class="card-header">ProPritaire
+      <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-plus-square custom-icon"></i> Ajouter
+      </button>
+    </h5>
+
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>libelle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ez of items; let i = index">
+          <td>{{ez.libelle}}</td>
+          <td>
+            <div class="d-flex gap-2"> <!-- Utilisation d'une classe flexbox avec un espace entre les éléments -->
+              <a class="btn btn-outline-danger" >
+                <i class="bi bi-trash"></i>
+              </a>
+              <a type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#editModal">
+                <i class="bi bi-pencil-square"></i>
+              </a>
+              <a class="btn btn-outline-primary">
+                <i class="bi bi-printer"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="notification" [ngClass]="{ 'show': _ok }"><i class="bi bi-bell-fill"></i>Propritaire save with succes
+  <i class="bi bi-bell-fill"></i></div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content custom-modal">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un élément</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="p-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="col-md-6">
+                <form>
+                  <div class="col-12">
+                    <label class="form-label">libelle</label>
+                    <input class="form-control" [(ngModel)]="item.libelle" [ngModelOptions]="{standalone: true}" >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-outline-danger" type="submit" (click)="save()" >Save</button>
+        <button class="btn btn-outline-primary" type="submit" (click)="get()">get</button>
+      </div>
+    </div>
+  </div>
+</div>
